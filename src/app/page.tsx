@@ -1,4 +1,5 @@
 import BannerDesktop from '@/components/BannerDesktop'
+import BannerMobile from '@/components/BannerMobile'
 import CarrouselColection from '@/components/CarrouselColection'
 import Categorias from '@/components/Categorias'
 import EnvioGratis from '@/components/EnvioGratis'
@@ -12,8 +13,14 @@ import React from 'react'
 const Home = () => {
   return (
     <div>
-      <div className='px-8 pt-10'>
+      <div className='px-4 md:px-8 pt-10'>
+       <div className='hidden lg:flex'>
         <BannerDesktop />
+       </div>
+       <div className='flex lg:hidden '>
+       <BannerMobile />
+       </div>
+        
       </div>
       <div>
         <EnvioGratis />

@@ -31,15 +31,15 @@ const Footer = () => {
             <div className='mx-auto'>
                 <p className='text-xl text-white mb-4 font-light'>¡Seguinos en redes!</p>
                 <div className='flex items-center gap-2 mb-3'>
-                    <IconInstagram className='w-8' />
+                    <IconInstagram className='w-8 text-[#C171D6]'/>
                     <p className='text-sm text-white font-light'>Instagram</p>
                 </div>
                 <div className='flex items-center gap-2 mb-3'>
-                    <IconFacebook className='w-8' />
+                    <IconFacebook className='w-8 text-[#C171D6]' />
                     <p className='text-sm text-white font-light'>Facebook</p>
                 </div>
                 <div className='flex items-center gap-2 '>
-                    <IconGooglePlus className='w-8' />
+                    <IconGooglePlus className='w-8 text-[#C171D6]' />
                     <p className='text-sm text-white font-light'>YouTube</p>
                 </div>
             </div>
