@@ -7,7 +7,7 @@ import IconSearch from '@/icons/IconSearch'
 
 const Navbar = () => {
   return (
-    <div className='bg-white flex items-end justify-between px-10 py-2'>
+    <div className='bg-white flex items-end justify-between px-14 py-2 fixed z-50 w-full shadow-md'>
         <div>
             <Image width={90} src={logo} alt='logo' />
         </div>
@@ -20,7 +20,7 @@ const Navbar = () => {
 
         <div className='flex items-center gap-6'>
             <IconUser
-                className='cursor-pointer w-5'
+                className='cursor-pointer w-5 '
             />
             <IconCart 
                  className='cursor-pointer w-5'
