@@ -34,7 +34,9 @@ const Navbar = () => {
             {/* DESKTOP */}
             <div className='bg-white hidden md:flex items-end justify-between gap-2 px-4 md:px-8 lg:px-14 py-3 fixed z-50 w-full shadow-md '>
                 <div>
-                    <Image width={90} src={logo} alt='logo' />
+                    <Link href="/">
+                        <Image width={90} src={logo} alt='logo' />
+                    </Link>
                 </div>
 
                 <div className='flex items-center gap-12'>
@@ -74,9 +76,9 @@ const Navbar = () => {
                     <div onClick={stopPropagation} className={`absolute top-[30px] -left-4 bg-white shadow-md transition-all duration-300  ${isOpenMenu ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'} ${subMenu ? 'w-[350px]' : 'w-64'}`}>
                         {isOpenMenu &&
                             <MenuMobile
-                            subMenu={subMenu}
-                            setSubMenu={setSubMenu}
-                            handleSubMenuClick={handleSubMenuClick}
+                                subMenu={subMenu}
+                                setSubMenu={setSubMenu}
+                                handleSubMenuClick={handleSubMenuClick}
                             />
                         }
                     </div>
@@ -84,7 +86,9 @@ const Navbar = () => {
                 </div>
 
                 <div>
-                    <Image width={75} src={logo} alt='logo' />
+                    <Link href="/">
+                        <Image width={75} src={logo} alt='logo' />
+                    </Link>
                 </div>
 
                 <div className='flex items-center gap-4'>

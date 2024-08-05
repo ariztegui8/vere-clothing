@@ -11,20 +11,20 @@ const Favoritos = () => {
             <h2 className='text-4xl text-[#79B4B7] font-light mb-4'>NUESTROS FAVORITOS</h2>
             <div className='grid grid-cols-4 gap-4'>
                 <div className='flex flex-col items-center gap-4'>
-                    <Image width={300} height={300} src={favorite1} alt='favorite1' style={{ objectFit: 'cover' }} />
-                    <button className='border border-[#79B4B7] py-2 px-10 rounded-md text-[#79B4B7]'>Ver más</button>
+                    <Image width={300} height={300} src={favorite1} alt='favorite1' style={{ objectFit: 'cover' }} className='transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer'/>
+                    <button className='border border-[#79B4B7] py-2 px-10 rounded-md text-[#79B4B7] duration-200 hover:bg-[#79B4B7] hover:text-white'>Ver más</button>
                 </div>
                 <div className='flex flex-col items-center gap-4'>
-                    <Image width={300} height={300} src={favorite2} alt='favorite2' style={{ objectFit: 'cover' }} />
-                    <button className='border border-[#79B4B7] py-2 px-10 rounded-md text-[#79B4B7]'>Ver más</button>
+                    <Image width={300} height={300} src={favorite2} alt='favorite2' style={{ objectFit: 'cover' }} className='transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer'/>
+                    <button className='border border-[#79B4B7] py-2 px-10 rounded-md text-[#79B4B7] duration-200 hover:bg-[#79B4B7] hover:text-white'>Ver más</button>
                 </div>
                 <div className='flex flex-col items-center gap-4'>
-                    <Image width={300} height={300} src={favorite3} alt='favorite3' style={{ objectFit: 'cover' }} />
-                    <button className='border border-[#79B4B7] py-2 px-10 rounded-md text-[#79B4B7]'>Ver más</button>
+                    <Image width={300} height={300} src={favorite3} alt='favorite3' style={{ objectFit: 'cover' }} className='transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer'/>
+                    <button className='border border-[#79B4B7] py-2 px-10 rounded-md text-[#79B4B7] duration-200 hover:bg-[#79B4B7] hover:text-white'>Ver más</button>
                 </div>
                 <div className='flex flex-col items-center gap-4'>
-                    <Image width={300} height={300} src={favorite4} alt='favorite4' style={{ objectFit: 'cover' }} />
-                    <button className='border border-[#79B4B7] py-2 px-10 rounded-md text-[#79B4B7]'>Ver más</button>
+                    <Image width={300} height={300} src={favorite4} alt='favorite4' style={{ objectFit: 'cover' }} className='transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer'/>
+                    <button className='border border-[#79B4B7] py-2 px-10 rounded-md text-[#79B4B7] duration-200 hover:bg-[#79B4B7] hover:text-white'>Ver más</button>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ const PreSale2 = () => {
                         <p className='text-white text-2xl font-light'>BOOTS VERÉ</p>
                     </div>
                     <div >
-                        <button className='text-white text-2xl font-light border border-[#C171D6] py-1 md:py-2 px-10 rounded-xl md:rounded-md'>NEW 22</button>
+                        <button className='text-white text-2xl font-light border border-[#C171D6] py-1 md:py-2 px-10 rounded-xl md:rounded-md duration-200 hover:bg-[#C171D6]'>NEW 22</button>
                     </div>
                 </div>
             </div>

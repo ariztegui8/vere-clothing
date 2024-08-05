@@ -10,11 +10,11 @@ const Subscription = () => {
                     <IconEmail />
                 </div>
                 <p className='text-white font-light text-base md:text-2xl text-center'>Suscribite a nuestras ofertas y RECIBE LAS ÚLTIMAS novedades</p>
-                <div className='flex items-center w-full justify-center max-w-lg'>
+                <div className='flex items-center w-full justify-center max-w-xs md:max-w-lg'>
                    <input 
                         type="email" 
                         placeholder='Ingrese su email'
-                        className='h-10 md:h-14 w-full px-3 border border-white bg-transparent outline-none rounded-md text-white placeholder:text-white'
+                        className='h-10 md:h-14 w-full m px-3 border border-white bg-transparent outline-none rounded-md text-white placeholder:text-white'
                     />
                     <button className='text-[#79B4B7] text-sm border border-white bg-white h-10 md:h-14 px-4 rounded-md relative right-2'>ENVIAR</button>
                 </div>
