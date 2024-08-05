@@ -10,9 +10,10 @@ import PreSale2 from '@/components/PreSale2'
 import SectionJeans from '@/components/SectionJeans'
 import SectionPreSale from '@/components/SectionPreSale'
 import Subscription from '@/components/Subscription'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Home = () => {
+
   return (
     <div>
       <div className='px-4 md:px-8 pt-10'>

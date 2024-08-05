@@ -4,6 +4,12 @@ export type IconProps = {
     className?: string;
 }
 
+export type IconPropsClick = {
+    onClick?: () => void;
+}
+
+export type IconPropsCombined = IconProps & IconPropsClick;
+
 export type CardCarrousel = {
     id: number;
     image: StaticImageData;
