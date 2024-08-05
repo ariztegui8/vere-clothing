@@ -34,10 +34,10 @@ const CarrouselColection = () => {
   return (
 
 
-    <div className='relative w-full h-[550px]'>
-      <Image fill src={fondoCarrousel} alt='fondo-carrousel' style={{ objectFit: 'cover' }} />
-      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-8 flex flex-col gap-8'>
-        <h2 className='text-4xl text-white font-light'>LA NUEVA COLECCIÓN</h2>
+    <div className='relative w-full h-[480px] md:h-[550]'>
+      <Image className='hidden md:flex' fill src={fondoCarrousel} alt='fondo-carrousel' style={{ objectFit: 'cover' }} />
+      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 md:px-8 flex flex-col gap-4 md:gap-8'>
+        <h2 className='text-2xl md:text-4xl text-[#C171D6] md:text-white font-light'>LA NUEVA COLECCIÓN</h2>
         <div>
           <Carousel 
             responsive={responsive} 
@@ -48,11 +48,11 @@ const CarrouselColection = () => {
           >
             {dataCarrousel.map(data => (
               <div key={data.id} className='flex flex-col gap-3 w-[270px] m-auto'>
-                <Image width={270} height={350} src={data.image} alt='img-cards' style={{ objectFit: 'cover' }} className='cursor-pointer duration-150 hover:brightness-50'/>
+                <Image width={270} height={350} src={data.image} alt='img-cards' style={{ objectFit: 'cover' }} />
                 <div className='flex justify-between items-center gap-2'>
                   <div>
-                    <p className='text-[#E5E5E5] text-sm font-light'>{data.title}</p>
-                    <p className='text-[#E5E5E5] text-sm font-light'>{data.price}</p>
+                    <p className='text-[#303030] md:text-[#E5E5E5] text-sm font-light'>{data.title}</p>
+                    <p className='text-[#303030] md:text-[#E5E5E5] text-sm font-light'>{data.price}</p>
                   </div>
                   <div className='pr-3'>
                     <IconCorazon className='w-7 cursor-pointer' />

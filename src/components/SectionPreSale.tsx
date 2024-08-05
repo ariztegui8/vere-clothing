@@ -4,9 +4,13 @@ import PreSale2 from './PreSale2'
 
 const SectionPreSale = () => {
     return (
-        <div className='grid grid-cols-2'>
-            <PreSale1 />
-            <PreSale2 />
+        <div className='grid grid-cols-1 md:grid-cols-2'>
+            <div>
+                <PreSale1 />
+            </div>
+            <div className='hidden md:flex'>
+                <PreSale2 />
+            </div>
         </div>
     )
 }

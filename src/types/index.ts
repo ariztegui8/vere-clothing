@@ -10,3 +10,10 @@ export type CardCarrousel = {
     title: string;
     price: string;
 }
+
+export type CardCarrouselFav = {
+    id: number;
+    image: StaticImageData;
+    title: string;
+    button: string;
+}

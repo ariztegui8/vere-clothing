@@ -9,8 +9,8 @@ import logoAfip from '../assets/afip.png'
 
 const Footer = () => {
     return (
-        <div className='grid grid-cols-4 gap-4'>
-            <div className='mx-auto '>
+        <div className='grid grid-cols1 md:grid-cols-4 gap-10 md:gap-4'>
+            <div className='mx-0 md:mx-auto'>
                 <p className='text-xl text-white mb-4 font-light'>veré</p>
                 <Link href='#'>
                     <p className='text-sm text-white font-light mb-3'>Nuestra historia</p>
@@ -19,7 +19,7 @@ const Footer = () => {
                 <p className='text-sm text-white font-light'>Contacto</p>
             </div>
 
-            <div className='mx-auto '>
+            <div className='mx-0 md:mx-auto '>
                 <p className='text-xl text-white mb-4 font-light'>Atención al cliente</p>
                 <p className='text-sm text-white font-light mb-3'>Preguntas frecuentes</p>
                 <p className='text-sm text-white font-light mb-3'>Términos y condiciones</p>
@@ -28,7 +28,7 @@ const Footer = () => {
                 <p className='text-sm text-white font-light'>Promociones Bancarias</p>
             </div>
 
-            <div className='mx-auto'>
+            <div className='mx-0 md:mx-auto'>
                 <p className='text-xl text-white mb-4 font-light'>¡Seguinos en redes!</p>
                 <div className='flex items-center gap-2 mb-3'>
                     <IconInstagram className='w-8 text-[#C171D6]'/>
@@ -44,7 +44,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='flex items-end gap-8 mx-auto'>
+            <div className='flex items-end gap-8 mx-0 md:mx-auto'>
                 <Image src={logoVtex} alt='logo-vtex' />
                 <Image src={logoAfip} alt='logo-afip' />
             </div>

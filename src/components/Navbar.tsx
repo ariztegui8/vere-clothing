@@ -8,17 +8,25 @@ import IconSearch from '@/icons/IconSearch'
 import IconMenu from '@/icons/IconMenu'
 import IconClose from '@/icons/IconClose'
 import Link from 'next/link'
-import IconInstagram from '@/icons/IconInstagram'
-import IconFacebook from '@/icons/IconFacebook'
-import IconGooglePlus from '@/icons/IconGooglePlus'
 import BtnWhatsApp from './BtnWhatsApp'
+import MenuMobile from './MenuMobile'
 
 const Navbar = () => {
 
     const [isOpenMenu, setIsOpenMenu] = useState(false)
+    const [subMenu, setSubMenu] = useState(false)
 
     const handleOpenMenu = () => {
         setIsOpenMenu(!isOpenMenu)
+        console.log(isOpenMenu);
+    }
+
+    const stopPropagation = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.stopPropagation();
+    }
+
+    const handleSubMenuClick = () => {
+        setSubMenu(!subMenu)
     }
 
     return (
@@ -63,33 +71,13 @@ const Navbar = () => {
                         :
                         <IconMenu className='w-6 h-5 cursor-pointer' />
                     }
-                    <div className={`absolute top-[30px] -left-4 bg-white shadow-md w-64 transition-all duration-300 ${isOpenMenu ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                    <div onClick={stopPropagation} className={`absolute top-[30px] -left-4 bg-white shadow-md transition-all duration-300  ${isOpenMenu ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'} ${subMenu ? 'w-[350px]' : 'w-64'}`}>
                         {isOpenMenu &&
-                            <div className='flex flex-col gap-4 p-8 px-10 transition-all duration-500'>
-                                <Link href="#">
-                                    <p className='text-sm font-light duration-100 hover:font-medium'>VER TODO</p>
-                                </Link>
-                                <Link href="#">
-                                    <p className='text-sm font-light duration-100 hover:font-medium'>NEW ARRIVALS</p>
-                                </Link>
-                                <Link href="#">
-                                    <p className='text-sm font-light duration-100 hover:font-medium'>CLOTHING</p>
-                                </Link>
-                                <Link href="#">
-                                    <p className='text-sm font-light duration-100 hover:font-medium'>+ INFO</p>
-                                </Link>
-                                <Link href="#" className='mb-6'>
-                                    <p className='text-sm font-medium text-[#79B4B7]'>OUTLET</p>
-                                </Link>
-
-                                <div className='flex items-center gap-4 justify-center'>
-                                    <IconInstagram className='w-8 text-[#303030] cursor-pointer' />
-                                    <IconFacebook className='w-8 text-[#303030] cursor-pointer' />
-                                    <IconGooglePlus className='w-8 text-[#303030] cursor-pointer' />
-                                </div>
-
-
-                            </div>
+                            <MenuMobile
+                            subMenu={subMenu}
+                            setSubMenu={setSubMenu}
+                            handleSubMenuClick={handleSubMenuClick}
+                            />
                         }
                     </div>
 
