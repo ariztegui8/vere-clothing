@@ -8,9 +8,10 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 type MenuMobileProps = {
     toggleSubMenu: (subMenu: string) => void
     openSubMenu: string | null
+    setOpenMenu: React.Dispatch<React.SetStateAction<string | null>>
 }
 
-const MenuMobile = ({ openSubMenu, toggleSubMenu }: MenuMobileProps) => {
+const MenuMobile = ({ openSubMenu, toggleSubMenu, setOpenMenu }: MenuMobileProps) => {
     return (
         <div className={`flex py-8 transition-all duration-500 ${openSubMenu === 'subMenu' ? 'px-4' : 'p-10'}`}>
             <div className='flex flex-col gap-4'>
@@ -53,25 +54,25 @@ const MenuMobile = ({ openSubMenu, toggleSubMenu }: MenuMobileProps) => {
                     <div className="w-px h-full bg-gray-300 mx-3"></div>
                     <div className='flex flex-col gap-4'>
                         <Link href="#">
-                            <p className='text-xs font-light duration-100 hover:font-medium'>COLECCIÓN INVIERNO 22</p>
+                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>COLECCIÓN INVIERNO 22</p>
+                        </Link>
+                        <Link href="/remeras" onClick={() => setOpenMenu(null)}>
+                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>REMERAS</p>
                         </Link>
                         <Link href="#">
-                            <p className='text-xs font-light duration-100 hover:font-medium'>REMERAS</p>
+                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>CAMISAS</p>
                         </Link>
                         <Link href="#">
-                            <p className='text-xs font-light duration-100 hover:font-medium'>CAMISAS</p>
+                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>PANTALONES</p>
                         </Link>
                         <Link href="#">
-                            <p className='text-xs font-light duration-100 hover:font-medium'>PANTALONES</p>
+                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>CAMPERAS</p>
                         </Link>
                         <Link href="#">
-                            <p className='text-xs font-light duration-100 hover:font-medium'>CAMPERAS</p>
+                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>BUZOS</p>
                         </Link>
                         <Link href="#">
-                            <p className='text-xs font-light duration-100 hover:font-medium'>BUZOS</p>
-                        </Link>
-                        <Link href="#">
-                            <p className='text-xs font-light duration-100 hover:font-medium'>ACCESORIOS</p>
+                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>ACCESORIOS</p>
                         </Link>
                     </div>
                 </div>

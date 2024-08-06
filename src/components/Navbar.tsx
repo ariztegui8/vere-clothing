@@ -48,28 +48,22 @@ const Navbar = () => {
                     <Link href="#">
                         <p className='text-xl font-light duration-100 hover:font-medium'>NEW ARRIVALS</p>
                     </Link>
-                    <Link
-                        href="#"
-                        onClick={() => toggleMenu('desktop')}
-                    >
-                        <div className='flex items-center gap-4 relative'>
-                            <p className='text-xl font-light duration-100 hover:font-medium'>CLOTHING</p>
-                            {openMenu === 'desktop' ?
-                                <MdKeyboardArrowUp size={20} color='#858484' />
-                                :
-                                <MdKeyboardArrowDown size={20} color='#858484' />
+                    <div onClick={() => toggleMenu('desktop')} className='flex items-center gap-4 relative cursor-pointer'>
+                        <p className='text-xl font-light duration-100 hover:font-medium'>CLOTHING</p>
+                        {openMenu === 'desktop' ?
+                            <MdKeyboardArrowUp size={20} color='#858484' />
+                            :
+                            <MdKeyboardArrowDown size={20} color='#858484' />
+                        }
+
+                        <div onClick={stopPropagation} className={`absolute top-9 bg-white shadow-md transition-all duration-300 w-72 ${openMenu === 'desktop' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                            {openMenu === 'desktop' &&
+                                <MenuDesktop
+                                    setOpenMenu={setOpenMenu}
+                                />
                             }
-
-                            <div onClick={stopPropagation} className={`absolute top-9 bg-white shadow-md transition-all duration-300 w-64 ${openMenu === 'desktop' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                                {openMenu === 'desktop' &&
-                                    <MenuDesktop
-                                        setOpenMenu={setOpenMenu}
-                                    />
-                                }
-                            </div>
                         </div>
-                    </Link>
-
+                    </div>
                     <Link href="#">
                         <p className='text-xl font-light duration-100 hover:font-medium'>+ INFO</p>
                     </Link>
@@ -99,8 +93,8 @@ const Navbar = () => {
                         <IconSearch
                             className='cursor-pointer w-5 text-[#C171D6]'
                         />
-                        <div onClick={stopPropagation} className={`absolute top-[60px] left-0 w-full  bg-white shadow-md transition-all duration-300 ${openMenu === 'search' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                            <div>
+                        <div onClick={stopPropagation} className={`absolute top-[60px] left-0 w-full shadow-md transition-all duration-300 ${openMenu === 'search' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                            <div className=''>
                                 {openMenu === 'search' &&
                                     <MenuSearch
                                         setOpenMenu={setOpenMenu}
@@ -112,6 +106,7 @@ const Navbar = () => {
                 </div>
             </div>
             <BtnWhatsApp />
+
 
             {/* MOBILE */}
             <div className='bg-white flex md:hidden items-end justify-between px-4 md:px-8 gap-2 py-3 fixed z-50 w-full shadow-md'>
@@ -126,6 +121,7 @@ const Navbar = () => {
                             <MenuMobile
                                 toggleSubMenu={toggleSubMenu}
                                 openSubMenu={openSubMenu}
+                                setOpenMenu={setOpenMenu}
                             />
                         }
                     </div>
@@ -139,15 +135,39 @@ const Navbar = () => {
                 </div>
 
                 <div className='flex items-center gap-4'>
-                    <IconUser
-                        className='cursor-pointer w-5 h-6'
-                    />
+                    <div onClick={() => toggleMenu('user')}>
+                        <IconUser
+                            className='cursor-pointer w-5 h-6'
+                        />
+                        <div onClick={stopPropagation} className={`absolute top-[54px] right-0 w-full bg-white shadow-md transition-all duration-300 ${openMenu === 'user' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                            <div>
+                                {openMenu === 'user' &&
+                                    <MenuUser
+                                        setOpenMenu={setOpenMenu}
+                                    />
+                                }
+                            </div>
+                        </div>
+                    </div>
+
                     <IconCart
                         className='cursor-pointer w-5 h-6'
                     />
-                    <IconSearch
-                        className='cursor-pointer w-5 h-6'
-                    />
+
+                    <div onClick={() => toggleMenu('search')}>
+                        <IconSearch
+                            className='cursor-pointer w-5 h-6'
+                        />
+                        <div onClick={stopPropagation} className={`absolute top-[54px] left-0 w-full shadow-md transition-all duration-300 ${openMenu === 'search' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                            <div className=''>
+                                {openMenu === 'search' &&
+                                    <MenuSearch
+                                        setOpenMenu={setOpenMenu}
+                                    />
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

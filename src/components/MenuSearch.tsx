@@ -10,11 +10,11 @@ type MenuSearchProps = {
 
 const MenuSearch = ({ setOpenMenu }: MenuSearchProps) => {
     return (
-        <div className={`transition-all bg-white duration-500 py-8 px-10`}>
-            <div className='w-full flex justify-end mb-3'>
+        <div className={`transition-all bg-white duration-500 p-6 md:p-8`}>
+            <div className='w-full flex justify-end mb-4'>
                 <IconClose onClick={() => setOpenMenu(null)} className='w-5 h-5 cursor-pointer' />
             </div>
-            <div className='flex items-center gap-3 max-w-xl m-auto'>
+            <div className='flex items-center gap-3 max-w-md md:max-w-xl m-auto'>
                 <input
                     type="text"
                     className='w-full border-b border-black focus:outline-none text-[#C4C4C4] placeholder:text-[#C4C4C4] placeholder:font-light'

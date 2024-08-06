@@ -17,6 +17,14 @@ export type CardCarrousel = {
     price: string;
 }
 
+export type Remeras = {
+    id: number;
+    image: StaticImageData;
+    title: string;
+    price: string;
+    new22?: boolean;
+}
+
 export type CardCarrouselFav = {
     id: number;
     image: StaticImageData;

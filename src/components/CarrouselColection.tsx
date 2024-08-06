@@ -55,7 +55,7 @@ const CarrouselColection = () => {
                     <p className='text-[#303030] md:text-[#E5E5E5] text-sm font-light'>{data.price}</p>
                   </div>
                   <div className='pr-3'>
-                    <IconCorazon className='w-7 cursor-pointer' />
+                    <IconCorazon className='w-7 cursor-pointer text-white' />
                   </div>
                 </div>
               </div>

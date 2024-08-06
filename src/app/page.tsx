@@ -10,7 +10,7 @@ import PreSale2 from '@/components/PreSale2'
 import SectionJeans from '@/components/SectionJeans'
 import SectionPreSale from '@/components/SectionPreSale'
 import Subscription from '@/components/Subscription'
-import React, { useState } from 'react'
+
 
 const Home = () => {
 
