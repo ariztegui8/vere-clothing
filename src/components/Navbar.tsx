@@ -16,35 +16,22 @@ import MenuSearch from './MenuSearch'
 import MenuUser from './MenuUser'
 
 const Navbar = () => {
+    const [openMenu, setOpenMenu] = useState<string | null>(null);
+    const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
-    const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false)
-    const [isOpenMenuDesktop, setIsOpenMenuDesktop] = useState(false)
-    const [isOpenSearch, setIsOpenSearch] = useState(false)
-    const [isOpenUser, setIsOpenUser] = useState(false)
-    const [subMenu, setSubMenu] = useState(false)
-
-    const handleOpenMenuMobile = () => {
-        setIsOpenMenuMobile(!isOpenMenuMobile)
+    const toggleMenu = (menu: string) => {
+        setOpenMenu(prev => prev === menu ? null : menu);
+        if (menu !== 'subMenu') {
+            setOpenSubMenu(null);
+        }
     }
 
-    const handleOpenMenuDesktop = () => {
-        setIsOpenMenuDesktop(!isOpenMenuDesktop)
-    }
-
-    const handleOpenSearch = () => {
-        setIsOpenSearch(!isOpenSearch)
-    }
-
-    const handleOpenUser = () => {
-        setIsOpenUser(!isOpenUser)
+    const toggleSubMenu = (subMenu: string) => {
+        setOpenSubMenu(prev => prev === subMenu ? null : subMenu);
     }
 
     const stopPropagation = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         e.stopPropagation();
-    }
-
-    const handleSubMenuClick = () => {
-        setSubMenu(!subMenu)
     }
 
     return (
@@ -63,20 +50,20 @@ const Navbar = () => {
                     </Link>
                     <Link
                         href="#"
-                        onClick={handleOpenMenuDesktop}
+                        onClick={() => toggleMenu('desktop')}
                     >
                         <div className='flex items-center gap-4 relative'>
                             <p className='text-xl font-light duration-100 hover:font-medium'>CLOTHING</p>
-                            {isOpenMenuDesktop ?
+                            {openMenu === 'desktop' ?
                                 <MdKeyboardArrowUp size={20} color='#858484' />
                                 :
                                 <MdKeyboardArrowDown size={20} color='#858484' />
                             }
 
-                            <div onClick={stopPropagation} className={`absolute top-9 bg-white shadow-md transition-all duration-300 w-64 ${isOpenMenuDesktop ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                                {isOpenMenuDesktop &&
+                            <div onClick={stopPropagation} className={`absolute top-9 bg-white shadow-md transition-all duration-300 w-64 ${openMenu === 'desktop' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                                {openMenu === 'desktop' &&
                                     <MenuDesktop
-                                        setIsOpenMenuDesktop={setIsOpenMenuDesktop}
+                                        setOpenMenu={setOpenMenu}
                                     />
                                 }
                             </div>
@@ -89,15 +76,15 @@ const Navbar = () => {
                 </div>
 
                 <div className='flex items-center gap-6'>
-                    <div onClick={handleOpenUser}>
+                    <div onClick={() => toggleMenu('user')}>
                         <IconUser
                             className='cursor-pointer w-5 text-[#C171D6]'
                         />
-                        <div onClick={stopPropagation} className={`absolute top-[60px] right-8 w-[400px]  bg-white shadow-md transition-all duration-300 ${isOpenUser ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                        <div onClick={stopPropagation} className={`absolute top-[60px] right-8 w-[400px]  bg-white shadow-md transition-all duration-300 ${openMenu === 'user' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                             <div>
-                                {isOpenUser &&
+                                {openMenu === 'user' &&
                                     <MenuUser
-                                        setIsOpenUser={setIsOpenUser}
+                                        setOpenMenu={setOpenMenu}
                                     />
                                 }
                             </div>
@@ -108,15 +95,15 @@ const Navbar = () => {
                         className='cursor-pointer w-5 text-[#C171D6]'
                     />
 
-                    <div onClick={handleOpenSearch}>
+                    <div onClick={() => toggleMenu('search')}>
                         <IconSearch
                             className='cursor-pointer w-5 text-[#C171D6]'
                         />
-                        <div onClick={stopPropagation} className={`absolute top-[60px] left-0 w-full  bg-white shadow-md transition-all duration-300 ${isOpenSearch ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                        <div onClick={stopPropagation} className={`absolute top-[60px] left-0 w-full  bg-white shadow-md transition-all duration-300 ${openMenu === 'search' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                             <div>
-                                {isOpenSearch &&
+                                {openMenu === 'search' &&
                                     <MenuSearch
-                                        setIsOpenSearch={setIsOpenSearch}
+                                        setOpenMenu={setOpenMenu}
                                     />
                                 }
                             </div>
@@ -128,18 +115,17 @@ const Navbar = () => {
 
             {/* MOBILE */}
             <div className='bg-white flex md:hidden items-end justify-between px-4 md:px-8 gap-2 py-3 fixed z-50 w-full shadow-md'>
-                <div onClick={handleOpenMenuMobile} className='flex items-center relative'>
-                    {isOpenMenuMobile ?
+                <div onClick={() => toggleMenu('mobile')} className='flex items-center relative'>
+                    {openMenu === 'mobile' ?
                         <IconClose className='w-6 h-5 cursor-pointer z-40' />
                         :
                         <IconMenu className='w-6 h-5 cursor-pointer' />
                     }
-                    <div onClick={stopPropagation} className={`absolute top-[30px] -left-4 bg-white shadow-md transition-all duration-300  ${isOpenMenuMobile ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'} ${subMenu ? 'w-[350px]' : 'w-64'}`}>
-                        {isOpenMenuMobile &&
+                    <div onClick={stopPropagation} className={`absolute top-[30px] -left-4 bg-white shadow-md transition-all duration-300  ${openMenu === 'mobile' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'} ${openMenu === 'mobile' && 'w-[350px]'}`}>
+                        {openMenu === 'mobile' &&
                             <MenuMobile
-                                subMenu={subMenu}
-                                setSubMenu={setSubMenu}
-                                handleSubMenuClick={handleSubMenuClick}
+                                toggleSubMenu={toggleSubMenu}
+                                openSubMenu={openSubMenu}
                             />
                         }
                     </div>

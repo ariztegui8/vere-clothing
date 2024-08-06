@@ -5,15 +5,15 @@ import IconPassword from '@/icons/IconPassword'
 import IconUser from '@/icons/IconUser'
 
 type MenuUserProps = {
-    setIsOpenUser: React.Dispatch<React.SetStateAction<boolean>>
+    setOpenMenu: React.Dispatch<React.SetStateAction<string | null>>
 }
 
 
-const MenuUser = ({ setIsOpenUser }: MenuUserProps) => {
+const MenuUser = ({ setOpenMenu }: MenuUserProps) => {
     return (
         <div className={`transition-all duration-500 p-6`}>
             <div className='w-full flex justify-end mb-3'>
-                <IconClose onClick={() => setIsOpenUser(false)} className='w-5 h-5 cursor-pointer' />
+                <IconClose onClick={() => setOpenMenu(null)} className='w-5 h-5 cursor-pointer' />
             </div>
             <div className='flex flex-col gap-4 items-center'>
                 <p className='text-2xl text-[#C171D6] font-light mb-3'>REGISTRATE</p>
@@ -21,9 +21,9 @@ const MenuUser = ({ setIsOpenUser }: MenuUserProps) => {
                 <div className='flex flex-col gap-1 w-full'>
                     <p>Correo electrónico</p>
                     <div className='flex items-center w-full justify-center'>
-                        <button className='border border-[#C171D6] bg-white h-10 rounded-md px-3 relative z-10'>
+                        <div className='flex justify-center items-center border border-[#C171D6] bg-white h-10 rounded-md px-3 relative z-10'>
                             <IconUser className='w-6 h-6 text-[#C171D6]' />
-                        </button>
+                        </div>
                         <input
                             type="email"
                             placeholder='Ingrese su email'
@@ -35,9 +35,9 @@ const MenuUser = ({ setIsOpenUser }: MenuUserProps) => {
                 <div className='flex flex-col gap-1 w-full mb-6'>
                     <p>Contraseña</p>
                     <div className='flex items-center w-full justify-center'>
-                        <button className='border border-[#C171D6] bg-white h-10 rounded-md px-3 relative z-10'>
+                        <div className='flex justify-center items-center border border-[#C171D6] bg-white h-10 rounded-md px-3 relative z-10'>
                             <IconPassword className='w-6 h-6 text-[#C171D6]' />
-                        </button>
+                        </div>
                         <input
                             type="password"
                             placeholder='Ingrese su email'

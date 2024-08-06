@@ -3,15 +3,15 @@ import Link from 'next/link'
 import IconClose from '@/icons/IconClose'
 
 type MenuDesktopProps = {
-    setIsOpenMenuDesktop: React.Dispatch<React.SetStateAction<boolean>>
+    setOpenMenu: React.Dispatch<React.SetStateAction<string | null>>
 }
 
 
-const MenuDesktop = ({setIsOpenMenuDesktop} : MenuDesktopProps) => {
+const MenuDesktop = ({setOpenMenu} : MenuDesktopProps) => {
     return (
         <div className={`transition-all duration-500 p-6`}>
             <div  className='w-full flex justify-end mb-3'>
-                <IconClose onClick={()=> setIsOpenMenuDesktop(false)} className='w-5 h-5'/>
+                <IconClose onClick={()=> setOpenMenu(null)} className='w-5 h-5'/>
             </div>
             <div className='flex flex-col gap-4'>
                 <Link href="#">

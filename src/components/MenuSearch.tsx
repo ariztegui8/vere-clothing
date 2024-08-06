@@ -4,15 +4,15 @@ import IconClose from '@/icons/IconClose'
 import IconSearch from '@/icons/IconSearch'
 
 type MenuSearchProps = {
-    setIsOpenSearch: React.Dispatch<React.SetStateAction<boolean>>
+    setOpenMenu: React.Dispatch<React.SetStateAction<string | null>>
 }
 
 
-const MenuSearch = ({ setIsOpenSearch }: MenuSearchProps) => {
+const MenuSearch = ({ setOpenMenu }: MenuSearchProps) => {
     return (
         <div className={`transition-all bg-white duration-500 py-8 px-10`}>
             <div className='w-full flex justify-end mb-3'>
-                <IconClose onClick={() => setIsOpenSearch(false)} className='w-5 h-5 cursor-pointer' />
+                <IconClose onClick={() => setOpenMenu(null)} className='w-5 h-5 cursor-pointer' />
             </div>
             <div className='flex items-center gap-3 max-w-xl m-auto'>
                 <input
