@@ -54,9 +54,6 @@ const Home = () => {
       <div>
         <Subscription />
       </div>
-      <div className='bg-[#303030] py-8 px-4 md:px-6 xl:px-12'>
-        <Footer />
-      </div>
     </div>
   )
 }

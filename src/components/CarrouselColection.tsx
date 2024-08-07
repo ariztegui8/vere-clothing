@@ -34,7 +34,7 @@ const CarrouselColection = () => {
   return (
 
 
-    <div className='relative w-full h-[480px] md:h-[550]'>
+    <div className='relative w-full h-[480px] md:h-[550px]'>
       <Image className='hidden md:flex' fill src={fondoCarrousel} alt='fondo-carrousel' style={{ objectFit: 'cover' }} />
       <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 md:px-8 flex flex-col gap-4 md:gap-8'>
         <h2 className='text-2xl md:text-4xl text-[#C171D6] md:text-white font-light'>LA NUEVA COLECCIÓN</h2>

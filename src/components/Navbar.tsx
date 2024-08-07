@@ -14,6 +14,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import MenuDesktop from './MenuDesktop'
 import MenuSearch from './MenuSearch'
 import MenuUser from './MenuUser'
+import MenuCarrito from './MenuCarrito'
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -85,9 +86,20 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <IconCart
-                        className='cursor-pointer w-5 text-[#C171D6]'
-                    />
+                    <div onClick={() => toggleMenu('carrito')}>
+                        <IconCart
+                            className='cursor-pointer w-5 text-[#C171D6]'
+                        />
+                        <div onClick={stopPropagation} className={`absolute top-[60px] right-0 w-[350px] sm:w-[400px] xl:w-[450px] overflow-y-auto bg-white shadow-md transition-all duration-300 customScrollbar ${openMenu === 'carrito' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                            <div>
+                                {openMenu === 'carrito' &&
+                                    <MenuCarrito
+                                        setOpenMenu={setOpenMenu}
+                                    />
+                                }
+                            </div>
+                        </div>
+                    </div>
 
                     <div onClick={() => toggleMenu('search')}>
                         <IconSearch
@@ -150,9 +162,20 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <IconCart
-                        className='cursor-pointer w-5 h-6'
-                    />
+                    <div onClick={() => toggleMenu('carrito')}>
+                        <IconCart
+                            className='cursor-pointer w-5 h-6'
+                        />
+                        <div onClick={stopPropagation} className={`absolute top-[54px] right-0 w-[350px] sm:w-[400px] xl:w-[450px] overflow-y-auto bg-white shadow-md transition-all duration-300 customScrollbar ${openMenu === 'carrito' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                            <div>
+                                {openMenu === 'carrito' &&
+                                    <MenuCarrito
+                                        setOpenMenu={setOpenMenu}
+                                    />
+                                }
+                            </div>
+                        </div>
+                    </div>
 
                     <div onClick={() => toggleMenu('search')}>
                         <IconSearch

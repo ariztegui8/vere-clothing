@@ -31,7 +31,6 @@ const HomeRemeras = () => {
                                 <p className='text-xs'>INICIO /</p>
                             </div>
                         </Link>
-                        <p className='text-xs'>CLOTHING /</p>
                         <p className='text-xs text-[#79B4B7]'>remeras</p>
                     </div>
                     <div>
@@ -72,9 +71,6 @@ const HomeRemeras = () => {
             </div>
             <div>
                 <Subscription />
-            </div>
-            <div className='bg-[#303030] py-8 px-4 md:px-6 xl:px-12'>
-                <Footer />
             </div>
         </div>
 
