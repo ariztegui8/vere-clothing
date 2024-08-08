@@ -31,3 +31,7 @@ export type CardCarrouselFav = {
     title: string;
     button: string;
 }
+
+export type CarritoContextType = {
+    name: string
+}

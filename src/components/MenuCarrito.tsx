@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import IconClose from '@/icons/IconClose'
 import remera1 from '../assets/remeras/remera1.png'
+import noProduct from '../assets/no-products.png'
 
 import Image from 'next/image'
 
@@ -19,6 +20,15 @@ const MenuCarrito = ({ setOpenMenu }: MenuUserProps) => {
             <div className='w-full flex justify-end mb-10'>
                 <p className='text-lg font-semibold'>Mi carrito</p>
             </div>
+
+            {/* No hay productos
+            <div className='flex flex-col items-center gap-8'>
+                <Image width={150} height={150} src={noProduct} alt='no-product' style={{ objectFit: 'cover' }} className='cursor-pointer' />
+                <div className='text-center'>
+                    <p className='text-sm font-semibold text-[#262626]'>Tu carrito está vacío.</p>
+                    <p className='text-sm text-[#262626]'>¡Agrega productos para empezar tu compra!</p>
+                </div>
+            </div> */}
 
             <div className='mb-10'>
                 <div>
@@ -73,7 +83,9 @@ const MenuCarrito = ({ setOpenMenu }: MenuUserProps) => {
                     <p className='text-xs'>Precio incluye IVA. El costo del despacho se incluye al finalizar la compra. </p>
                 </div>
                 <div>
-                    <button className='py-2 px-6 rounded-md text-white bg-[#C171D6] duration-200 font-light w-full'>Comprar ahora</button>
+                    <Link href='/checkout' onClick={() => setOpenMenu(null)}>
+                        <button className='py-2 px-6 rounded-md text-white bg-[#C171D6] duration-200 font-light w-full'>Comprar ahora</button>
+                    </Link>
                 </div>
             </div>
         </div>
