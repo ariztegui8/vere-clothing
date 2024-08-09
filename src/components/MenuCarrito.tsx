@@ -12,6 +12,8 @@ type MenuUserProps = {
 
 
 const MenuCarrito = ({ setOpenMenu }: MenuUserProps) => {
+    
+
     return (
         <div className={`transition-all duration-500 p-6 max-w-sm m-auto`}>
             <div className='w-full flex justify-start mb-1'>

@@ -1,15 +1,14 @@
+'use client'
 import Image from "next/image";
 import remera1 from '../../assets/remeras/remera1.png'
 import IconClose from "@/icons/IconClose";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import Link from "next/link";
-import useCarrito from "@/hooks/useCarrito";
+
 
 const Checkout = () => {
 
-    const {name} = useCarrito()
-    console.log(name);
-    
+
   return (
 
     <div className='py-24 px-4 md:px-8 '>
@@ -75,7 +74,7 @@ const Checkout = () => {
               <input
                 type="text"
                 placeholder="Código de descuento"
-                className="px-2 h-10 outline-none w-full border border-[#EEEEEE] rounded-md"
+                className="px-2 h-10 outline-none w-full border border-[#EEEEEE] rounded-md uppercase"
               />
               <button className="border border-[#79B4B7] rounded-md text-[#79B4B7] p-2 h-10">APLICAR</button>
             </div>

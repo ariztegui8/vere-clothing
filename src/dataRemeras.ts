@@ -11,10 +11,10 @@ import imgRemeras10 from '../src/assets/remeras/remera10.png'
 import imgRemeras11 from '../src/assets/remeras/remera11.png'
 import imgRemeras12 from '../src/assets/remeras/remera12.png'
 import imgRemeras13 from '../src/assets/remeras/remera13.png'
-import { Remeras } from './types'
+import { ProductType } from './types'
 
 
-export const dataRemeras : Remeras[] = [
+export const dataRemeras : ProductType[] = [
     {   
         id: 1,
         image: imgRemeras1,

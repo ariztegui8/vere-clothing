@@ -1,7 +1,6 @@
 'use client'
-import { CarritoContextType } from "@/types"
+import { CarritoContextType, ProductType } from "@/types"
 import { createContext, useState } from "react"
-
 
 type CarritoProviderProps = {
     children: React.ReactNode
@@ -9,15 +8,19 @@ type CarritoProviderProps = {
 
 const CarritoContext = createContext<CarritoContextType | undefined>(undefined)
 
-const CarritoProvider = ({ children } : CarritoProviderProps) => {
+const CarritoProvider = ({ children }: CarritoProviderProps) => {
 
-    const [name, setName] = useState('Hola locaso');
+    const [cartItems, setCartItems] = useState<ProductType[]>([]);
 
+    const addToCart = (product: ProductType) => {
+        setCartItems((prevItems) => [...prevItems, product]);
+    };
 
     return (
         <CarritoContext.Provider
             value={{
-                name
+                cartItems,
+                addToCart,
             }}
         >
             {children}

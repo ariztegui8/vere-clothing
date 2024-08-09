@@ -5,7 +5,9 @@ import Footer from '@/components/Footer'
 import SectionJeans from '@/components/SectionJeans'
 import Subscription from '@/components/Subscription'
 import { dataRemeras } from '@/dataRemeras'
+import useCarrito from '@/hooks/useCarrito'
 import IconCorazon from '@/icons/IconCorazon'
+import { ProductType } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -16,9 +18,21 @@ const HomeRemeras = () => {
 
     const router = useRouter()
 
+    const { addToCart } = useCarrito()
+
     const handleCardClick = (id: number) => {
         router.push(`/remeras/${id}`);
     };
+
+
+    const handleAddToCart = (product: ProductType) => {
+      if (addToCart) {
+        addToCart(product);
+        console.log(product);
+        
+      }
+    };
+
 
     return (
         <div>
@@ -56,7 +70,7 @@ const HomeRemeras = () => {
                                 </div>
                             </div>
                             <div className='text-center'>
-                                <button className='border border-[#C171D6] py-2 px-6 rounded-md text-[#C171D6] duration-200 hover:bg-[#C171D6] hover:text-white'>COMPRAR</button>
+                                <button  onClick={() => handleAddToCart(data)} className='border border-[#C171D6] py-2 px-6 rounded-md text-[#C171D6] duration-200 hover:bg-[#C171D6] hover:text-white'>Agregar al carrito</button>
                             </div>
                         </div>
                     ))}

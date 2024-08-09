@@ -17,7 +17,7 @@ export type CardCarrousel = {
     price: string;
 }
 
-export type Remeras = {
+export type ProductType  = {
     id: number;
     image: StaticImageData;
     title: string;
@@ -33,5 +33,6 @@ export type CardCarrouselFav = {
 }
 
 export type CarritoContextType = {
-    name: string
+    addToCart: (product: ProductType) => void
+    cartItems: ProductType[]
 }
