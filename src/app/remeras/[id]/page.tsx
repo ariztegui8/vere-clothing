@@ -3,17 +3,25 @@ import CarrouselRemeras from '@/components/CarrouselRemeras'
 import Footer from '@/components/Footer'
 import TablaTalles from '@/components/TablaTalles'
 import { dataRemeras } from '@/dataRemeras'
+import useCarrito from '@/hooks/useCarrito'
 import IconStar from '@/icons/IconStar'
+import { CartItem, ProductType } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
+
+
 const RemerasId = () => {
 
+    const { handleAddCart } = useCarrito()
+
     const [openMenu, setOpenMenu] = useState<string | null>(null);
+    const [quantity, setQuantity] = useState(1);
 
     const { id } = useParams();
+    const router = useRouter();
 
     const toggleMenu = (menu: string) => {
         setOpenMenu(prev => prev === menu ? null : menu);
@@ -21,9 +29,31 @@ const RemerasId = () => {
 
     const remerasId = dataRemeras.find((data) => data.id === Number(id));
 
+
+    const handleAddToCart = (product: ProductType) => {
+        if (handleAddCart) {
+            const productWithQuantity = { ...product, quantity } as CartItem;
+            handleAddCart(productWithQuantity);
+        }
+    };
+
+    const handleBuyNow = (product: ProductType) => {
+        handleAddToCart(product);
+        router.push('/checkout');
+    };
+
+    const incrementQuantity = () => {
+        setQuantity(prevQuantity => prevQuantity + 1);
+    };
+
+    const decrementQuantity = () => {
+        setQuantity(prevQuantity => prevQuantity > 1 ? prevQuantity - 1 : 1);
+    };
+
     if (!remerasId) {
         return <div>Producto no encontrado</div>;
     }
+
 
     return (
         <div>
@@ -107,14 +137,14 @@ const RemerasId = () => {
                         </div>
 
                         <div className='flex items-center justify-center w-[120px] py-1 gap-3 border border-[#79B4B7] rounded-md mb-10'>
-                            <button className='text-2xl px-3'>-</button>
-                            <p className='text-xl'>1</p>
-                            <button className='text-2xl px-3'>+</button>
+                            <button onClick={decrementQuantity} className='text-2xl px-3'>-</button>
+                            <p className='text-xl'>{quantity}</p>
+                            <button onClick={incrementQuantity} className='text-2xl px-3'>+</button>
                         </div>
 
                         <div className='flex flex-col items-start gap-2 '>
-                            <button className='py-2 px-6 rounded-md text-white bg-[#C171D6] duration-200 font-light w-[190px]'>Comprar ahora</button>
-                            <button className='py-2 px-6 rounded-md text-white bg-[#79B4B7] duration-200 font-light w-[190px]'>Agregar al carrito</button>
+                            <button onClick={() => handleBuyNow(remerasId)} className='py-2 px-6 rounded-md text-white bg-[#C171D6] duration-200 font-light w-[190px]'>Comprar ahora</button>
+                            <button onClick={() => handleAddToCart(remerasId)} className='py-2 px-6 rounded-md text-white bg-[#79B4B7] duration-200 font-light w-[190px]'>Agregar al carrito</button>
                         </div>
                     </div>
                 </div>

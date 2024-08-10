@@ -15,10 +15,13 @@ import MenuDesktop from './MenuDesktop'
 import MenuSearch from './MenuSearch'
 import MenuUser from './MenuUser'
 import MenuCarrito from './MenuCarrito'
+import useCarrito from '@/hooks/useCarrito'
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState<string | null>(null);
     const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+
+    const { totalItems } = useCarrito()
 
     const toggleMenu = (menu: string) => {
         setOpenMenu(prev => prev === menu ? null : menu);
@@ -87,10 +90,17 @@ const Navbar = () => {
                     </div>
 
                     <div onClick={() => toggleMenu('carrito')}>
-                        <IconCart
-                            className='cursor-pointer w-5 text-[#C171D6]'
-                        />
-                        <div onClick={stopPropagation} className={`absolute top-[60px] right-0 w-[350px] sm:w-[400px] xl:w-[450px] overflow-y-auto bg-white shadow-md transition-all duration-300 customScrollbar ${openMenu === 'carrito' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                        <div className='relative'>
+                            <IconCart
+                                className='cursor-pointer w-5 text-[#C171D6]'
+                            />
+                            {totalItems > 0 && (
+                                <span className="absolute top-0 left-3 w-5 h-5 bg-[#79B4B7] text-white text-xs flex justify-center items-center rounded-full">
+                                    {totalItems}
+                                </span>
+                            )}
+                        </div>
+                        <div onClick={stopPropagation} className={`absolute top-[60px] right-0 w-[350px] sm:w-[400px] overflow-y-auto bg-white shadow-md transition-all duration-300 customScrollbar ${openMenu === 'carrito' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                             <div>
                                 {openMenu === 'carrito' &&
                                     <MenuCarrito
@@ -163,9 +173,16 @@ const Navbar = () => {
                     </div>
 
                     <div onClick={() => toggleMenu('carrito')}>
-                        <IconCart
-                            className='cursor-pointer w-5 h-6'
-                        />
+                        <div className='relative'>
+                            <IconCart
+                                className='cursor-pointer w-5 h-6'
+                            />
+                            {totalItems > 0 && (
+                                <span className="absolute top-0 left-3 w-5 h-5 bg-[#79B4B7] text-white text-xs flex justify-center items-center rounded-full">
+                                    {totalItems}
+                                </span>
+                            )}
+                        </div>
                         <div onClick={stopPropagation} className={`absolute top-[54px] right-0 w-[350px] sm:w-[400px] xl:w-[450px] overflow-y-auto bg-white shadow-md transition-all duration-300 customScrollbar ${openMenu === 'carrito' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                             <div>
                                 {openMenu === 'carrito' &&

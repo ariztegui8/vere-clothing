@@ -17,11 +17,11 @@ export type CardCarrousel = {
     price: string;
 }
 
-export type ProductType  = {
+export type ProductType = {
     id: number;
     image: StaticImageData;
     title: string;
-    price: string;
+    price: number;
     new22?: boolean;
 }
 
@@ -33,6 +33,17 @@ export type CardCarrouselFav = {
 }
 
 export type CarritoContextType = {
-    addToCart: (product: ProductType) => void
-    cartItems: ProductType[]
+    cartItems: CartItem[];
+    handleAddCart: (item: CartItem) => void;
+    deleteItem: (id: ProductType["id"]) => void
+    addQuantity: (id: ProductType["id"]) => void
+    deleteQuantity: (id: ProductType["id"]) => void
+    isCheckout: boolean
+    subtotal: number;
+    total: number;
+    totalItems: number;
+}
+
+export type CartItem = ProductType & {
+    quantity: number;
 }

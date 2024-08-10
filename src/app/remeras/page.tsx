@@ -1,13 +1,13 @@
 'use client'
 import EnvioGratis from '@/components/EnvioGratis'
 import Filtros from '@/components/Filtros'
-import Footer from '@/components/Footer'
 import SectionJeans from '@/components/SectionJeans'
 import Subscription from '@/components/Subscription'
 import { dataRemeras } from '@/dataRemeras'
+import { formatPrice } from '@/helpers'
 import useCarrito from '@/hooks/useCarrito'
 import IconCorazon from '@/icons/IconCorazon'
-import { ProductType } from '@/types'
+import { CartItem, ProductType } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -18,7 +18,7 @@ const HomeRemeras = () => {
 
     const router = useRouter()
 
-    const { addToCart } = useCarrito()
+    const { handleAddCart } = useCarrito()
 
     const handleCardClick = (id: number) => {
         router.push(`/remeras/${id}`);
@@ -26,11 +26,10 @@ const HomeRemeras = () => {
 
 
     const handleAddToCart = (product: ProductType) => {
-      if (addToCart) {
-        addToCart(product);
-        console.log(product);
-        
-      }
+        if (handleAddCart) {
+            const productWithQuantity: CartItem = { ...product, quantity: 1 }
+            handleAddCart(productWithQuantity);
+        }
     };
 
 
@@ -59,18 +58,23 @@ const HomeRemeras = () => {
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
                     {dataRemeras.map(data => (
                         <div key={data.id} className='flex flex-col gap-2 m-auto p-4'>
-                            <Image onClick={() => handleCardClick(data.id)} width={250} height={380} src={data.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
+                            <div className='relative'>
+                                <Image onClick={() => handleCardClick(data.id)} width={250} height={380} src={data.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
+                                {data.new22 &&
+                                    <p className='text-[#303030] font-light text-lg absolute top-0 left-0'>New 22</p>
+                                }
+                            </div>
                             <div className='flex justify-between items-center gap-2 mb-4'>
                                 <div>
                                     <p className='text-[#303030] font-light'>{data.title}</p>
-                                    <p className='text-[#303030] font-light'>{data.price}</p>
+                                    <p className='text-[#303030] font-light'>{formatPrice(data.price)}</p>
                                 </div>
                                 <div className='pr-3'>
                                     <IconCorazon className='w-7 text-[#303030] cursor-pointer' />
                                 </div>
                             </div>
                             <div className='text-center'>
-                                <button  onClick={() => handleAddToCart(data)} className='border border-[#C171D6] py-2 px-6 rounded-md text-[#C171D6] duration-200 hover:bg-[#C171D6] hover:text-white'>Agregar al carrito</button>
+                                <button onClick={() => handleAddToCart(data)} className='border border-[#C171D6] py-2 px-6 rounded-md text-[#C171D6] duration-200 hover:bg-[#C171D6] hover:text-white'>Agregar al carrito</button>
                             </div>
                         </div>
                     ))}

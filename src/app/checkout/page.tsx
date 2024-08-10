@@ -4,10 +4,13 @@ import remera1 from '../../assets/remeras/remera1.png'
 import IconClose from "@/icons/IconClose";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import Link from "next/link";
+import useCarrito from "@/hooks/useCarrito";
+import { formatPrice } from "@/helpers";
 
 
 const Checkout = () => {
 
+  const { cartItems, deleteItem, addQuantity, deleteQuantity, subtotal, total } = useCarrito();
 
   return (
 
@@ -17,7 +20,7 @@ const Checkout = () => {
       </div>
       <div className='flex flex-col md:flex-row gap-8'>
         <div className='w-full md:w-auto lg:w-3/5 2xl:w-3/4 mx-auto'>
-          <div className="overflow-x-auto customScrollbar mb-6">
+          <div className="overscroll-x-auto sm:overscroll-none customScrollbar mb-6">
             <table className="min-w-full border border-[#B4B4B4]">
               <thead>
                 <tr className="text-left">
@@ -28,32 +31,36 @@ const Checkout = () => {
                 </tr>
               </thead>
               <tbody className="border-t border-[#C4C4C4]">
-                <tr>
-                  <td className="p-4">
-                    <div className='flex flex-col sm:flex-row gap-2'>
-                      <Image width={80} height={100} src={remera1} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
-                      <p className='text-xs text-[#303030]'>Remera Road White</p>
-                    </div>
-                  </td>
-                  <td className="p-4">
-                    <div className='flex items-center justify-center gap-1 border border-[#79B4B7] rounded-md w-[65px] mb-3'>
-                      <button className='px-2'>-</button>
-                      <p>1</p>
-                      <button className='px-2'>+</button>
-                    </div>
-                  </td>
-                  <td className="p-4">
-                    <div>
-                      <p className='text-sm font-semibold'>$6.390</p>
-                      <p className='text-sm text-[#909294]'>$6.390</p>
-                    </div>
-                  </td>
-                  <td className="p-4">
-                    <div>
-                      <IconClose className='w-3 h-3 text-[#909294] cursor-pointer' />
-                    </div>
-                  </td>
-                </tr>
+                {cartItems.map(item => (
+                  <>
+                    <tr>
+                      <td className="p-4">
+                        <div className='flex flex-col sm:flex-row gap-2'>
+                          <Image width={80} height={100} src={item.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
+                          <p className='text-xs text-[#303030]'>{item.title}</p>
+                        </div>
+                      </td>
+                      <td className="p-4">
+                        <div className='flex items-center justify-center gap-1 border border-[#79B4B7] rounded-md w-[65px] mb-3'>
+                          <button onClick={() => deleteQuantity(item.id)} className='px-2'>-</button>
+                          <p>{item.quantity}</p>
+                          <button onClick={() => addQuantity(item.id)} className='px-2'>+</button>
+                        </div>
+                      </td>
+                      <td className="p-4">
+                        <div>
+                          <p className='text-sm font-semibold'>{formatPrice(item.price * item.quantity)}</p>
+                          <p className='text-sm text-[#909294] line-through'>$6.390</p>
+                        </div>
+                      </td>
+                      <td className="p-4">
+                        <div>
+                          <IconClose onClick={() => deleteItem(item.id)} className='w-3 h-3 text-[#909294] cursor-pointer' />
+                        </div>
+                      </td>
+                    </tr>
+                  </>
+                ))}
               </tbody>
             </table>
           </div>
@@ -83,7 +90,7 @@ const Checkout = () => {
 
             <div className="flex items-center justify-between">
               <p>Subtotal</p>
-              <p>$3.560</p>
+              <p>{formatPrice(subtotal)}</p>
             </div>
 
             <hr className='my-3' />
@@ -95,7 +102,7 @@ const Checkout = () => {
 
             <div className="flex items-center justify-between mb-6">
               <p className="font-medium">Total</p>
-              <p className="text-lg font-semibold">$3.560</p>
+              <p className="text-lg font-semibold">{formatPrice(total)}</p>
             </div>
 
             <div>
