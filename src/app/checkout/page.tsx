@@ -44,7 +44,7 @@ const Checkout = () => {
         </div>
         <div className='flex flex-col md:flex-row gap-8'>
           <div className='w-full md:w-auto lg:w-3/5 2xl:w-3/4 mx-auto'>
-            <div className="overscroll-x-auto sm:overscroll-none customScrollbar mb-6">
+            <div className={`customScrollbar mb-6 ${cartItems.length > 0 ? 'overflow-auto' : 'overflow-hidden'}`}>
               <table className="min-w-full border border-[#B4B4B4]">
                 <thead>
                   <tr className="text-left">
