@@ -3,7 +3,7 @@ import EnvioGratis from '@/components/EnvioGratis'
 import Filtros from '@/components/Filtros'
 import SectionJeans from '@/components/SectionJeans'
 import Subscription from '@/components/Subscription'
-import { dataCamisas } from '@/dataCamisas'
+import { dataPantalones } from '@/dataPantalones'
 import { formatPrice } from '@/helpers'
 import useCarrito from '@/hooks/useCarrito'
 import IconCorazon from '@/icons/IconCorazon'
@@ -56,7 +56,7 @@ const HomePantalones = () => {
                 </div>
 
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-                    {dataCamisas.map(data => (
+                    {dataPantalones.map(data => (
                         <div key={data.id} className='flex flex-col gap-2 m-auto p-4'>
                             <div className='relative'>
                                 <Image onClick={() => handleCardClick(data.id)} width={250} height={380} src={data.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />

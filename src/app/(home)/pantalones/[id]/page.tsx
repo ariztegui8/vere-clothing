@@ -1,7 +1,7 @@
 'use client'
-import CarrouselCamisas from '@/components/CarrouselCamisas'
+import CarrouselPantalones from '@/components/CarrouselPantalones'
 import TablaTalles from '@/components/TablaTalles'
-import { dataCamisas } from '@/dataCamisas'
+import { dataPantalones } from '@/dataPantalones'
 import useCarrito from '@/hooks/useCarrito'
 import IconStar from '@/icons/IconStar'
 import { CartItem, ProductType } from '@/types'
@@ -26,7 +26,7 @@ const PantalonesId = () => {
         setOpenMenu(prev => prev === menu ? null : menu);
     }
 
-    const pantalonesId = dataCamisas.find((data) => data.id === Number(id));
+    const pantalonesId = dataPantalones.find((data) => data.id === Number(id));
 
 
     const handleAddToCart = (product: ProductType) => {
@@ -223,7 +223,7 @@ const PantalonesId = () => {
                 </div>
 
                 <div>
-                    <CarrouselCamisas />
+                    <CarrouselPantalones />
                 </div>
 
             </div>
