@@ -17,9 +17,9 @@ export default function RootLayoutCheckout({
 
 
   return (
-        <div className={inter.className}>
+        <section className={inter.className}>
           {children}
-        </div>
+        </section>
 
   );
 }

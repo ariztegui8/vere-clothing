@@ -43,7 +43,7 @@ const MenuCarrito = ({ setOpenMenu }: MenuUserProps) => {
                 :
                 <>
                     {cartItems.map(item => (
-                        <>
+                        <div key={item.id}>
                             <div className='mb-10'>
                                 <div className='w-full flex justify-end mb-2'>
                                     <IconClose onClick={() => deleteItem(item.id)} className='w-3 h-3 cursor-pointer' />
@@ -62,7 +62,7 @@ const MenuCarrito = ({ setOpenMenu }: MenuUserProps) => {
                                 </div>
                                 <hr className='my-4' />
                             </div>
-                        </>
+                        </div>
                     ))}
 
                     <div className='mb-16'>
