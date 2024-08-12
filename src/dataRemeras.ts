@@ -78,32 +78,25 @@ export const dataRemeras : ProductType[] = [
         price: 13500,
         new22: false
     },
-    // {   
-    //     id: 10,
-    //     image: imgRemeras10,
-    //     title: 'All Black Leyend',
-    //     price: 23500,
-    //     new22: true
-    // },
-    // {   
-    //     id: 11,
-    //     image: imgRemeras11,
-    //     title: 'Remera Garrison',
-    //     price: 23700,
-    //     new22: true
-    // },
-    // {   
-    //     id: 12,
-    //     image: imgRemeras12,
-    //     title: 'Remera Tokio Japan',
-    //     price: 16500,
-    //     new22: true
-    // },
-    // {   
-    //     id: 13,
-    //     image: imgRemeras13,
-    //     title: 'Remera Celtics',
-    //     price: 16200,
-    //     new22: true
-    // },
+    {   
+        id: 10,
+        image: imgRemeras10,
+        title: 'All Black Leyend',
+        price: 23500,
+        new22: true
+    },
+    {   
+        id: 11,
+        image: imgRemeras11,
+        title: 'Remera Garrison',
+        price: 23700,
+        new22: true
+    },
+    {   
+        id: 12,
+        image: imgRemeras12,
+        title: 'Remera Tokio Japan',
+        price: 16500,
+        new22: true
+    },
 ]

@@ -38,6 +38,7 @@ export type CarritoContextType = {
     deleteItem: (id: ProductType["id"]) => void
     addQuantity: (id: ProductType["id"]) => void
     deleteQuantity: (id: ProductType["id"]) => void
+    vaciarCarrito: () => void
     isCheckout: boolean
     subtotal: number;
     total: number;

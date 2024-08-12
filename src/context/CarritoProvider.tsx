@@ -70,6 +70,10 @@ const CarritoProvider = ({ children }: CarritoProviderProps) => {
         return cartItems.reduce((total, item) => total + item.quantity, 0);
     }, [cartItems]);
 
+    const vaciarCarrito = () => {
+        setCartItems([]);
+    }
+
     const pathname = usePathname();
     const isCheckout = pathname === '/checkout';
 
@@ -85,6 +89,7 @@ const CarritoProvider = ({ children }: CarritoProviderProps) => {
                 subtotal,
                 total,
                 totalItems,
+                vaciarCarrito
             }}
         >
             {children}
