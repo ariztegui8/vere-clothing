@@ -14,8 +14,8 @@ const MenuDesktop = ({setOpenMenu} : MenuDesktopProps) => {
                 <IconClose onClick={()=> setOpenMenu(null)} className='w-5 h-5'/>
             </div>
             <div className='flex flex-col gap-4'>
-                <Link href="#">
-                    <p className='text-sm font-light duration-100 hover:font-medium'>COLECCIÓN INVIERNO 22</p>
+                <Link href="/coleccion" onClick={()=> setOpenMenu(null)}>
+                    <p className='text-sm font-light duration-100 hover:font-medium'>COLECCIÓN INVIERNO 24</p>
                 </Link>
                 <Link href="/remeras" onClick={()=> setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>REMERAS</p>
@@ -23,16 +23,16 @@ const MenuDesktop = ({setOpenMenu} : MenuDesktopProps) => {
                 <Link href="/camisas" onClick={()=> setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>CAMISAS</p>
                 </Link>
-                <Link href="#">
+                <Link href="/pantalones" onClick={()=> setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>PANTALONES</p>
                 </Link>
-                <Link href="#">
+                <Link href="/camperas" onClick={()=> setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>CAMPERAS</p>
                 </Link>
-                <Link href="#">
+                <Link href="/buzos" onClick={()=> setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>BUZOS</p>
                 </Link>
-                <Link href="#">
+                <Link href="/accesorios" onClick={()=> setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>ACCESORIOS</p>
                 </Link>
             </div>

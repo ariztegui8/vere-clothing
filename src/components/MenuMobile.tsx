@@ -53,8 +53,8 @@ const MenuMobile = ({ openSubMenu, toggleSubMenu, setOpenMenu }: MenuMobileProps
                 <div className='flex '>
                     <div className="w-px h-full bg-gray-300 mx-3"></div>
                     <div className='flex flex-col gap-4'>
-                        <Link href="#">
-                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>COLECCIÓN INVIERNO 22</p>
+                        <Link href="/coleccion" onClick={() => setOpenMenu(null)}>
+                            <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>COLECCIÓN INVIERNO 24</p>
                         </Link>
                         <Link href="/remeras" onClick={() => setOpenMenu(null)}>
                             <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>REMERAS</p>
@@ -62,16 +62,16 @@ const MenuMobile = ({ openSubMenu, toggleSubMenu, setOpenMenu }: MenuMobileProps
                         <Link href="camisas" onClick={() => setOpenMenu(null)}>
                             <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>CAMISAS</p>
                         </Link>
-                        <Link href="#">
+                        <Link href="/pantalones" onClick={() => setOpenMenu(null)}>
                             <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>PANTALONES</p>
                         </Link>
-                        <Link href="#">
+                        <Link href="/camperas" onClick={() => setOpenMenu(null)}>
                             <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>CAMPERAS</p>
                         </Link>
-                        <Link href="#">
+                        <Link href="/buzos" onClick={() => setOpenMenu(null)}>
                             <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>BUZOS</p>
                         </Link>
-                        <Link href="#">
+                        <Link href="/accesorios" onClick={() => setOpenMenu(null)}>
                             <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>ACCESORIOS</p>
                         </Link>
                     </div>
