@@ -17,24 +17,30 @@ const Categorias = () => {
                 </Link>
                 <p className='text-sm md:text-base'>REMERAS</p>
             </div>
+
             <div className='flex flex-col items-center gap-3 cursor-pointer'>
-                <div className='overflow-hidden'>
-                    <Image width={300} height={300} src={catCamisas} alt='cat-camisas' style={{ objectFit: 'cover' }} className='transition-all duration-300 hover:brightness-50 hover:scale-110' />
-                </div>
+                <Link href='/camisas'>
+                    <div className='overflow-hidden'>
+                        <Image width={300} height={300} src={catCamisas} alt='cat-camisas' style={{ objectFit: 'cover' }} className='transition-all duration-300 hover:brightness-50 hover:scale-110' />
+                    </div>
+                </Link>
                 <p className='text-sm md:text-base'>CAMISAS</p>
             </div>
+            
             <div className='flex flex-col items-center gap-3 cursor-pointer'>
                 <div className='overflow-hidden'>
                     <Image width={300} height={300} src={catPantalones} alt='cat-pantalones' style={{ objectFit: 'cover' }} className='transition-all duration-300 hover:brightness-50 hover:scale-110' />
                 </div>
                 <p className='text-sm md:text-base'>PANTALONES</p>
             </div>
+
             <div className='flex flex-col items-center gap-3 cursor-pointer'>
                 <div className='overflow-hidden'>
                     <Image width={300} height={300} src={catAccesorios} alt='cat-accesorios' style={{ objectFit: 'cover' }} className='transition-all duration-300 hover:brightness-50 hover:scale-110' />
                 </div>
                 <p className='text-sm md:text-base'>ACCESORIOS</p>
             </div>
+            
         </div>
     )
 }

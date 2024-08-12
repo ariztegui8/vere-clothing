@@ -1,19 +1,19 @@
 'use client'
+import { dataCamisas } from '@/dataCamisas';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { dataRemeras } from '@/dataRemeras';
-import { useRouter } from 'next/navigation';
 
 
 
-const CarrouselRemeras = () => {
+const CarrouselCamisas = () => {
 
     const router = useRouter()
 
     const handleCardClick = (id: number) => {
-        router.push(`/remeras/${id}`);
+        router.push(`/camisas/${id}`);
     };
 
     const responsive = {
@@ -52,9 +52,9 @@ const CarrouselRemeras = () => {
                         responsive={responsive}
                         infinite={true}
                     >
-                        {dataRemeras.map(data => (
+                        {dataCamisas.map(data => (
                             <div key={data.id} className='flex flex-col gap-3 w-[210px] m-auto'>
-                                <Image onClick={() => handleCardClick(data.id)} width={210} height={260} src={data.image} alt='img-cards' style={{ objectFit: 'cover' }} className='cursor-pointer'/>
+                                <Image onClick={() => handleCardClick(data.id)} width={210} height={260} src={data.image} alt='img-cards' style={{ objectFit: 'cover' }} className='cursor-pointer' />
                                 <div className=' gap-2'>
                                     <p className='text-[#303030] text-sm font-light'>{data.title}</p>
                                     <p className='text-[#303030] text-sm font-light'>{data.price}</p>
@@ -69,4 +69,4 @@ const CarrouselRemeras = () => {
     )
 }
 
-export default CarrouselRemeras
+export default CarrouselCamisas

@@ -59,7 +59,7 @@ const MenuMobile = ({ openSubMenu, toggleSubMenu, setOpenMenu }: MenuMobileProps
                         <Link href="/remeras" onClick={() => setOpenMenu(null)}>
                             <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>REMERAS</p>
                         </Link>
-                        <Link href="#">
+                        <Link href="camisas" onClick={() => setOpenMenu(null)}>
                             <p className='text-xs font-light duration-100 hover:font-medium hover:text-[#C171D6]'>CAMISAS</p>
                         </Link>
                         <Link href="#">

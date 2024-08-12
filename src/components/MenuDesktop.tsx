@@ -20,7 +20,7 @@ const MenuDesktop = ({setOpenMenu} : MenuDesktopProps) => {
                 <Link href="/remeras" onClick={()=> setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>REMERAS</p>
                 </Link>
-                <Link href="#">
+                <Link href="/camisas" onClick={()=> setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>CAMISAS</p>
                 </Link>
                 <Link href="#">
