@@ -1,7 +1,7 @@
 'use client'
 import CarrouselPantalones from '@/components/CarrouselPantalones'
 import TablaTalles from '@/components/TablaTalles'
-import { dataPantalones } from '@/dataPantalones'
+import { dataPantalones } from '@/db/dataPantalones'
 import useCarrito from '@/hooks/useCarrito'
 import IconStar from '@/icons/IconStar'
 import { CartItem, ProductType } from '@/types'
@@ -65,7 +65,7 @@ const PantalonesId = () => {
                                 <p className='text-xs'>INICIO /</p>
                             </div>
                         </Link>
-                        <Link href='/camisas'>
+                        <Link href='/pantalones'>
                             <p className='text-xs'>PANTALONES /</p>
                         </Link>
                         <p className='text-xs text-[#79B4B7]'>pantalon {pantalonesId.id}</p>

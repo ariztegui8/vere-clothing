@@ -1,5 +1,5 @@
 'use client'
-import { dataPantalones } from '@/dataPantalones';
+import { dataPantalones } from '@/db/dataPantalones';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react'

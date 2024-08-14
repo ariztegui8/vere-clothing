@@ -5,7 +5,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import fondoCarrousel from '../assets/fondo-carrousel.png'
 import IconCorazon from '@/icons/IconCorazon';
-import { dataCarrousel } from '@/dataCarrousel';
+import { dataCarrousel } from '@/db/dataCarrousel';
 
 
 

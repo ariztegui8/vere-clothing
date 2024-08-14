@@ -1,5 +1,5 @@
 'use client'
-import { dataCamisas } from '@/dataCamisas';
+import { dataCamisas } from '@/db/dataCamisas';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react'

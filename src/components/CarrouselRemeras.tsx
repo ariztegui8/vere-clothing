@@ -3,8 +3,8 @@ import Image from 'next/image';
 import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { dataRemeras } from '@/dataRemeras';
 import { useRouter } from 'next/navigation';
+import { dataRemeras } from '@/db/dataRemeras';
 
 
 

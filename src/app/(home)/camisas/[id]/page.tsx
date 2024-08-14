@@ -1,7 +1,7 @@
 'use client'
 import CarrouselCamisas from '@/components/CarrouselCamisas'
 import TablaTalles from '@/components/TablaTalles'
-import { dataCamisas } from '@/dataCamisas'
+import { dataCamisas } from '@/db/dataCamisas'
 import useCarrito from '@/hooks/useCarrito'
 import IconStar from '@/icons/IconStar'
 import { CartItem, ProductType } from '@/types'

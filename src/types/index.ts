@@ -20,8 +20,11 @@ export type CardCarrousel = {
 export type ProductType = {
     id: number;
     image: StaticImageData;
+    image2: StaticImageData;
+    image3: StaticImageData;
     title: string;
     price: number;
+    description?: string;
     new22?: boolean;
 }
 

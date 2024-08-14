@@ -3,7 +3,7 @@ import EnvioGratis from '@/components/EnvioGratis'
 import Filtros from '@/components/Filtros'
 import SectionJeans from '@/components/SectionJeans'
 import Subscription from '@/components/Subscription'
-import { dataPantalones } from '@/dataPantalones'
+import { dataPantalones } from '@/db/dataPantalones'
 import { formatPrice } from '@/helpers'
 import useCarrito from '@/hooks/useCarrito'
 import IconCorazon from '@/icons/IconCorazon'
@@ -61,7 +61,9 @@ const HomePantalones = () => {
                             <div className='relative'>
                                 <Image onClick={() => handleCardClick(data.id)} width={250} height={380} src={data.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
                                 {data.new22 &&
-                                    <p className='text-[#303030] font-light text-lg absolute top-0 left-0'>New 22</p>
+                                    <div className='absolute top-0 left-0 bg-[#79B4B7] rounded-b-lg w-8 h-9 flex items-center justify-center'>
+                                        <p className='text-white font-medium text-xs'>OFF</p>
+                                    </div>
                                 }
                             </div>
                             <div className='flex justify-between items-center gap-2 mb-4'>
