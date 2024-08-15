@@ -51,3 +51,5 @@ export type CarritoContextType = {
 export type CartItem = ProductType & {
     quantity: number;
 }
+
+export type StringNull = string | null;

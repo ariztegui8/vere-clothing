@@ -1,15 +1,16 @@
 'use client'
 import CarrouselColeccion24 from '@/components/CarrouselColection24'
 import CarrouselPantalones from '@/components/CarrouselPantalones'
+import ModalImages from '@/components/ModalImages'
 import TablaTalles from '@/components/TablaTalles'
 import { dataColeccion24 } from '@/db/dataColeccion24'
 import useCarrito from '@/hooks/useCarrito'
 import IconStar from '@/icons/IconStar'
-import { CartItem, ProductType } from '@/types'
-import Image from 'next/image'
+import { CartItem, ProductType, StringNull } from '@/types'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 
 
@@ -17,8 +18,12 @@ const ColeccionId = () => {
 
     const { handleAddCart } = useCarrito()
 
-    const [openMenu, setOpenMenu] = useState<string | null>(null);
+    const [openMenu, setOpenMenu] = useState<StringNull>(null);
     const [quantity, setQuantity] = useState(1);
+    const [selectedImage, setSelectedImage] = useState<StringNull>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedTalle, setSelectedTalle] = useState('');
+    const [selectedColor, setSelectedColor] = useState('');
 
     const { id } = useParams();
     const router = useRouter();
@@ -28,6 +33,12 @@ const ColeccionId = () => {
     }
 
     const coleccionId = dataColeccion24.find((data) => data.id === Number(id));
+
+    useEffect(() => {
+        if (coleccionId) {
+            setSelectedImage(coleccionId.image.src);
+        }
+    }, [coleccionId]);
 
 
     const handleAddToCart = (product: ProductType) => {
@@ -48,6 +59,28 @@ const ColeccionId = () => {
 
     const decrementQuantity = () => {
         setQuantity(prevQuantity => prevQuantity > 1 ? prevQuantity - 1 : 1);
+    };
+
+    const handleChangeTalle = (talle: string) => {
+        setSelectedTalle(talle);
+    }
+
+    const handleChangeColor = (color: string) => {
+        setSelectedColor(color);
+    }
+
+    const handleChangeImage = (image: StaticImageData) => {
+        setSelectedImage(image.src);
+    }
+
+    const handleZoomImage = () => {
+        if (selectedImage) {
+            setIsModalOpen(true);
+        }
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
     };
 
     if (!coleccionId) {
@@ -75,20 +108,20 @@ const ColeccionId = () => {
 
                 <div className='flex flex-col md:flex-row gap-8 mb-20'>
                     <div className='w-auto m-auto 2xl:w-3/4 '>
-                        <div className='flex items-center gap-3'>
-                            <div className='hidden md:flex flex-col gap-4'>
-                                <Image width={95} height={120} src={coleccionId.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
-                                <Image width={95} height={120} src={coleccionId.image2} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
-                                <Image width={95} height={120} src={coleccionId.image3} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
+                        <div className='flex flex-col-reverse md:flex-row items-center gap-3'>
+                            <div className='flex flex-row md:flex-col gap-4'>
+                                <Image onClick={() => handleChangeImage(coleccionId.image)} width={95} height={120} src={coleccionId.image} alt='img-remeras' className='cursor-pointer object-cover' />
+                                <Image onClick={() => handleChangeImage(coleccionId.image2)} width={95} height={120} src={coleccionId.image2} alt='img-remeras' className='cursor-pointer object-cover' />
+                                <Image onClick={() => handleChangeImage(coleccionId.image3)} width={95} height={120} src={coleccionId.image3} alt='img-remeras' className='cursor-pointer object-cover' />
                             </div>
                             <div className='m-auto'>
-                                <Image width={450} height={550} src={coleccionId.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
+                                <Image onClick={handleZoomImage} width={450} height={550} src={selectedImage || coleccionId.image} alt='img-remeras' className='cursor-pointer object-cover' />
                             </div>
                         </div>
                     </div>
 
                     <div className='w-auto m-auto 2xl:w-1/4'>
-                        <div className=' mb-10 lg:mb-20'>
+                        <div className=' mb-10 lg:mb-20 max-w-xs'>
                             <p className='text-3xl text-[#303030] mb-1'>{coleccionId.title}</p>
                             <div className='flex items-center gap-3 mb-1'>
                                 <p className='text-2xl font-light text-[#303030]'>{coleccionId.price}</p>
@@ -106,16 +139,16 @@ const ColeccionId = () => {
                         <div className='mb-6'>
                             <p className='mb-2 font-light'>TALLE</p>
                             <div className='flex items-center gap-2'>
-                                <div className='border border-[#79B4B7] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer'>
+                                <div onClick={() => handleChangeTalle('s')} className={`border-[#79B4B7] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer ${selectedTalle === 's' ? 'border-2' : 'border'}`}>
                                     <p className='font-light'>S</p>
                                 </div>
-                                <div className='border border-[#79B4B7] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer'>
+                                <div onClick={() => handleChangeTalle('m')} className={`border-[#79B4B7] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer ${selectedTalle === 'm' ? 'border-2' : 'border'}`}>
                                     <p className='font-light'>M</p>
                                 </div>
-                                <div className='border border-[#79B4B7] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer'>
+                                <div onClick={() => handleChangeTalle('l')} className={`border-[#79B4B7] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer ${selectedTalle === 'l' ? 'border-2' : 'border'}`}>
                                     <p className='font-light'>L</p>
                                 </div>
-                                <div className='border border-[#79B4B7] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer'>
+                                <div onClick={() => handleChangeTalle('xl')} className={`border-[#79B4B7] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer ${selectedTalle === 'xl' ? 'border-2' : 'border'}`}>
                                     <p className='font-light'>XL</p>
                                 </div>
                             </div>
@@ -124,13 +157,13 @@ const ColeccionId = () => {
                         <div className='mb-10'>
                             <p className='mb-2 font-light'>COLOR</p>
                             <div className='flex items-center gap-2'>
-                                <div className='bg-black w-9 h-7 flex items-center justify-center rounded-md cursor-pointer'>
+                                <div onClick={() => handleChangeColor('black')} className={`bg-black w-9 h-7 flex items-center justify-center rounded-md cursor-pointer ${selectedColor === 'black' ? 'border-2 border-[#79B4B7]' : ''}`}>
 
                                 </div>
-                                <div className='border border-black bg-white w-9 h-7 flex items-center justify-center rounded-md cursor-pointer'>
+                                <div onClick={() => handleChangeColor('white')} className={`bg-white w-9 h-7 flex items-center justify-center rounded-md cursor-pointer ${selectedColor === 'white' ? 'border-2 border-[#79B4B7]' : 'border border-black'}`}>
 
                                 </div>
-                                <div className='bg-[#C11A56] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer'>
+                                <div onClick={() => handleChangeColor('rose')} className={`bg-[#C11A56] w-9 h-7 flex items-center justify-center rounded-md cursor-pointer ${selectedColor === 'rose' ? 'border-2 border-[#79B4B7]' : ''}`}>
 
                                 </div>
                             </div>
@@ -224,6 +257,12 @@ const ColeccionId = () => {
                 </div>
 
             </div>
+            <ModalImages
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                imageSrc={selectedImage}
+                altText="Imagen ampliada"
+            />
         </div>
     )
 }

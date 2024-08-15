@@ -58,7 +58,7 @@ const HomeRemeras = () => {
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
                     {dataRemeras.map(data => (
                         <div key={data.id} className='flex flex-col gap-2 m-auto p-4'>
-                            <div className='relative'>
+                            <div className='relative mx-auto'>
                                 <Image onClick={() => handleCardClick(data.id)} width={250} height={380} src={data.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
                                 {data.new22 &&
                                     <div className='absolute top-0 left-0 bg-[#79B4B7] rounded-b-lg w-8 h-9 flex items-center justify-center'>
