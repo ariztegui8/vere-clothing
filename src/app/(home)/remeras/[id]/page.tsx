@@ -4,6 +4,7 @@ import Footer from '@/components/Footer'
 import ModalImages from '@/components/ModalImages'
 import TablaTalles from '@/components/TablaTalles'
 import { dataRemeras } from '@/db/dataRemeras'
+import { formatPrice } from '@/helpers'
 import useCarrito from '@/hooks/useCarrito'
 import IconStar from '@/icons/IconStar'
 import { CartItem, ProductType, StringNull } from '@/types'
@@ -123,7 +124,7 @@ const RemerasId = () => {
                         <div className=' mb-10 lg:mb-20 max-w-xs'>
                             <p className='text-3xl text-[#303030] mb-1'>{remerasId.title}</p>
                             <div className='flex items-center gap-3 mb-1'>
-                                <p className='text-2xl font-light text-[#303030]'>{remerasId.price}</p>
+                                <p className='text-2xl font-light text-[#303030]'>{formatPrice(remerasId.price)}</p>
                                 <div className='flex items-center gap-1'>
                                     <IconStar className='text-[#79B4B7] w-6 h-6' />
                                     <IconStar className='text-[#79B4B7] w-6 h-6' />

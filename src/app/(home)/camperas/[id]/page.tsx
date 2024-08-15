@@ -3,6 +3,7 @@ import CarrouselCamperas from '@/components/CarrouselCamperas'
 import ModalImages from '@/components/ModalImages'
 import TablaTalles from '@/components/TablaTalles'
 import { dataCamperas } from '@/db/dataCamperas'
+import { formatPrice } from '@/helpers'
 import useCarrito from '@/hooks/useCarrito'
 import IconStar from '@/icons/IconStar'
 import { CartItem, ProductType, StringNull } from '@/types'
@@ -123,7 +124,7 @@ const CamperasId = () => {
                         <div className=' mb-10 lg:mb-20 max-w-xs'>
                             <p className='text-3xl text-[#303030] mb-1'>{camperasId.title}</p>
                             <div className='flex items-center gap-3 mb-1'>
-                                <p className='text-2xl font-light text-[#303030]'>{camperasId.price}</p>
+                                <p className='text-2xl font-light text-[#303030]'>{formatPrice(camperasId.price)}</p>
                                 <div className='flex items-center gap-1'>
                                     <IconStar className='text-[#79B4B7] w-6 h-6' />
                                     <IconStar className='text-[#79B4B7] w-6 h-6' />
