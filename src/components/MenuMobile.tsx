@@ -18,7 +18,7 @@ const MenuMobile = ({ openSubMenu, toggleSubMenu, setOpenMenu }: MenuMobileProps
                 <Link href="#">
                     <p className='text-sm font-light duration-100 hover:font-medium'>VER TODO</p>
                 </Link>
-                <Link href="#">
+                <Link href="/arrivals" onClick={() => setOpenMenu(null)}>
                     <p className='text-sm font-light duration-100 hover:font-medium'>NEW ARRIVALS</p>
                 </Link>
                 <Link

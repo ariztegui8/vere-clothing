@@ -49,7 +49,7 @@ const Navbar = () => {
                 </div>
 
                 <div className='flex items-center gap-12'>
-                    <Link href="#">
+                    <Link href="/arrivals">
                         <p className='text-xl font-light duration-100 hover:font-medium'>NEW ARRIVALS</p>
                     </Link>
                     <div onClick={() => toggleMenu('desktop')} className='flex items-center gap-4 relative cursor-pointer'>

@@ -78,8 +78,8 @@ const AccesoriosId = () => {
                         <div className='flex items-center gap-3'>
                             <div className='hidden md:flex flex-col gap-4'>
                                 <Image width={95} height={120} src={accesoriosId.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
-                                <Image width={95} height={120} src={accesoriosId.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
-                                <Image width={95} height={120} src={accesoriosId.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
+                                <Image width={95} height={120} src={accesoriosId.image2} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
+                                <Image width={95} height={120} src={accesoriosId.image3} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
                             </div>
                             <div className='m-auto'>
                                 <Image width={450} height={550} src={accesoriosId.image} alt='img-remeras' style={{ objectFit: 'cover' }} className='cursor-pointer' />
@@ -161,11 +161,7 @@ const AccesoriosId = () => {
                         </div>
                         <div className={`transition-all duration-300 w-full ${openMenu === 'description' ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                             {openMenu === 'description' &&
-                                <p className='py-6'>Remera de hombre Adventures algodón liviano, con un ajuste atlético y tela de malla para
-                                    eliminar la humedad y ofrecer un movimiento fácil y cómodo para que puedas mantenerte
-                                    concentrado y alcanzar el máximo rendimiento. El estilo clásico del cuello redondo se ve
-                                    muy bien dentro y fuera del gimnasio, mientras que los detalles reflectantes y el contraste
-                                    de colores le dan un estilo deportivo.</p>
+                                <p className='py-6'>{accesoriosId.description}</p>
                             }
                         </div>
                     </div>
