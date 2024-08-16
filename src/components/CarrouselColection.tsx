@@ -6,10 +6,14 @@ import 'react-multi-carousel/lib/styles.css';
 import fondoCarrousel from '../assets/fondo-carrousel.png'
 import IconCorazon from '@/icons/IconCorazon';
 import { dataCarrousel } from '@/db/dataCarrousel';
+import useCarrito from '@/hooks/useCarrito';
+import IconCorazonLleno from '@/icons/IconCorazonLleno';
 
 
 
 const CarrouselColection = () => {
+
+  const { handleLike, likedItems } = useCarrito()
 
   const responsive = {
     superLargeDesktop: {
@@ -39,12 +43,12 @@ const CarrouselColection = () => {
       <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 md:px-8 flex flex-col gap-4 md:gap-8'>
         <h2 className='text-2xl md:text-4xl text-[#C171D6] md:text-white font-light'>LA NUEVA COLECCIÓN</h2>
         <div>
-          <Carousel 
-            responsive={responsive} 
+          <Carousel
+            responsive={responsive}
             infinite={true}
             autoPlay={true}
             autoPlaySpeed={4000}
-            // pauseOnHover={false}
+          // pauseOnHover={false}
           >
             {dataCarrousel.map(data => (
               <div key={data.id} className='flex flex-col gap-3 w-[270px] m-auto'>
@@ -54,8 +58,12 @@ const CarrouselColection = () => {
                     <p className='text-[#303030] md:text-[#E5E5E5] text-sm font-light'>{data.title}</p>
                     <p className='text-[#303030] md:text-[#E5E5E5] text-sm font-light'>{data.price}</p>
                   </div>
-                  <div className='pr-3'>
-                    <IconCorazon className='w-7 cursor-pointer text-white' />
+                  <div className='pr-3' onClick={() => handleLike(data.id)} >
+                    {likedItems.includes(data.id) ?
+                      <IconCorazonLleno className='w-7 text-[#C171D6] md:text-white cursor-pointer' />
+                      :
+                      <IconCorazon className='w-7 text-[#303030] cursor-pointer' />
+                    }
                   </div>
                 </div>
               </div>

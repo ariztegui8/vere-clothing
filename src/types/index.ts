@@ -42,10 +42,11 @@ export type CarritoContextType = {
     addQuantity: (id: ProductType["id"]) => void
     deleteQuantity: (id: ProductType["id"]) => void
     vaciarCarrito: () => void
-    isCheckout: boolean
     subtotal: number;
     total: number;
     totalItems: number;
+    handleLike: (id: number) => void;
+    likedItems: number[]
 }
 
 export type CartItem = ProductType & {

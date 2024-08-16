@@ -12,6 +12,7 @@ const CarritoContext = createContext<CarritoContextType | undefined>(undefined)
 const CarritoProvider = ({ children }: CarritoProviderProps) => {
 
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const [likedItems, setLikedItems] = useState<number[]>([])
 
     const MAX_QUANTITY = 10;
     const MIN_QUANTITY = 1;
@@ -74,8 +75,16 @@ const CarritoProvider = ({ children }: CarritoProviderProps) => {
         setCartItems([]);
     }
 
-    const pathname = usePathname();
-    const isCheckout = pathname === '/checkout';
+    const handleLike = (id: number) => {
+        console.log('anda');
+        
+        setLikedItems(prev =>
+            prev.includes(id)
+                ? prev.filter(itemId => itemId !== id)
+                : [...prev, id]
+        );
+    };
+
 
     return (
         <CarritoContext.Provider
@@ -85,11 +94,12 @@ const CarritoProvider = ({ children }: CarritoProviderProps) => {
                 deleteItem,
                 addQuantity,
                 deleteQuantity,
-                isCheckout,
                 subtotal,
                 total,
                 totalItems,
-                vaciarCarrito
+                vaciarCarrito,
+                handleLike,
+                likedItems
             }}
         >
             {children}

@@ -7,6 +7,7 @@ import { dataCamperas } from '@/db/dataCamperas'
 import { formatPrice } from '@/helpers'
 import useCarrito from '@/hooks/useCarrito'
 import IconCorazon from '@/icons/IconCorazon'
+import IconCorazonLleno from '@/icons/IconCorazonLleno'
 import { CartItem, ProductType } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -18,7 +19,7 @@ const HomeCamperas = () => {
 
     const router = useRouter()
 
-    const { handleAddCart } = useCarrito()
+    const { handleAddCart, handleLike, likedItems } = useCarrito()
 
     const handleCardClick = (id: number) => {
         router.push(`/camperas/${id}`);
@@ -71,8 +72,12 @@ const HomeCamperas = () => {
                                     <p className='text-[#303030] font-light'>{data.title}</p>
                                     <p className='text-[#303030] font-light'>{formatPrice(data.price)}</p>
                                 </div>
-                                <div className='pr-3'>
-                                    <IconCorazon className='w-7 text-[#303030] cursor-pointer' />
+                                <div className='pr-3' onClick={() => handleLike(data.id)} >
+                                    {likedItems.includes(data.id) ?
+                                        <IconCorazonLleno className='w-7 text-[#C171D6] cursor-pointer' />
+                                        :
+                                        <IconCorazon className='w-7 text-[#303030] cursor-pointer' />
+                                    }
                                 </div>
                             </div>
                             <div className='text-center'>
