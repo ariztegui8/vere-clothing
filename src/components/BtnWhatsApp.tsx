@@ -8,7 +8,7 @@ const BtnWhatsApp = () => {
 
   return (
     <Link href={`https://wa.me/${phoneNumber}`} target="_blank" rel="noopener noreferrer">
-    <div  className='fixed z-50  bottom-8 md:bottom-16 right-8 md:right-16  cursor-pointer'>
+    <div  className='fixed z-50  bottom-8 md:bottom-16 right-8 md:right-16 transition-all duration-300 cursor-pointer hover:scale-125'>
         <IconWhatsApp className='text-[#C171D6]'/>
     </div>
     </Link>
